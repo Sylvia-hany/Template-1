@@ -1,0 +1,842 @@
+    /*
+        1-common style 
+        2-general css styles
+        3-Sections
+              1.header section
+              2.home section
+              3.about section
+              4.portofilio section
+              5.Services section
+              6.prices section
+              7.team section
+              8.blog section
+              9.contact section
+              10.footer section
+        
+    
+    */
+  
+  
+  
+  /*common styles*/
+/*    
+        -container 
+        -overlay يعني احط طبقه بشفافيه معينه فوق الصوره
+        -opacity hover
+        -section header
+        -section padding msafat m4trka 2bl w b3d
+        -hover effect1 [left to right]
+        -hover effect2 [top to bottom]
+        -left to right effect
+*/
+
+.overlay{
+
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        bottom: 0;
+        background-color:rgba(0, 0, 0, .7);
+   }
+   /*3mlt parent l hover w bktb feha en ll opacity t7sl f ns sanya abt2 4oya mn ll default:0s*/
+  .hover-opacity {transition: opacity .5s;}
+
+ .hover-opacity:hover{
+                   opacity: .8;}
+
+  .ltr-effect,.tb-effect{
+        position: relative;
+  }
+  .ltr-effect::after ,.tb-effect::after{
+      position: absolute;
+      content: "";
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      z-index: -1;/*خليتو بالسالب عشان يكون ورا الكلام*/
+      background: #333;
+  }
+
+  .ltr-effect::after{
+        width: 0;
+        transition: width .5s;
+  }
+  .tb-effect::after{
+        height: 0;
+        transition:height .5s;
+  }
+
+  .ltr-effect:hover::after{
+     width: 100%;
+
+  }
+ 
+  .tb-effect:hover::after{
+     height: 100%;
+  }
+/* general styles*/
+*{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box; /*css3 ]d ]d دي عشان لما اعمل بادنج لحاجه ميزدش الويدي يتعامل ع قد حجمو بس*/
+}
+
+h1,h2,h3,h4,h5,h6{font-family:montserrat,sans-serif}
+button{font-family: inherit;}
+
+:root {
+       --mainColor :#6195FF;
+       --greycolor: #999;
+       --whitecolor:#FFF;
+}
+
+/*class hdeh l kol ll sections 34an aos3 fo2 ll m7toa w t7to*/
+.pd-y{
+        padding: 120px 0;
+}
+.ul{
+        list-style: none;
+}
+
+  /*section styles*/
+.header{
+        position: fixed;
+        width: 100%; /*34an ll pos fixed by7ol ll 3nsr mn block l inline-blick f bynkm4*/
+        z-index: 10;  /*34an htzhe m4klt eno e5tfa t7t ll home*/
+        background: rgba(0, 0, 0, .4);
+}
+
+   .container{
+        width: 80%;
+        margin: auto;      
+   }
+
+   .clear{clear: both;}
+
+
+    .section-header{
+    text-align: center;
+    }
+
+    .section-header .section-title{
+        font-size: 35px;
+        text-transform: capitalize;
+       
+    }
+
+    .section-header .line{
+        display: block;
+        width: 60px; ;
+        height: 5px ;
+        margin: 0 auto 70px auto;
+        background:var(--mainColor);
+    }
+   
+
+
+body
+        {
+  font-family: "Varela Round", sans-serif;
+}
+ 
+.header .logo{
+        width: 40%;
+        float: left;
+}
+
+.header .logo img{
+        width: 20%;
+        margin-top: 14px;
+}
+
+.header .navbar{
+        width: 60%;
+        float: left;
+        list-style: none;
+        text-align: right;
+}
+
+.header .navbar > li{
+       display: inline-block;
+        margin-left: 13px;
+       text-align: center;
+
+}
+
+.header .navbar > li > a{
+        font-size: 12px;
+        color: white;
+        text-decoration: none;
+        padding: 30px 10px;
+        display: block; /*عملتها بلوك عشان هي بالنسبه لليست مامتها بس تبقي واخده وسعها الكويس اللي يدوس فيه اليوزر براحتو*/
+   
+}
+
+/*عاوزه انادي ع ال ا اللي واخد كلاس اكتيف عشان اعمل الشرطه اللي تحتو بفكره افتر*/
+.header .navbar > li > a::after{
+  content: "";
+  display: block; /*عشان افتر وبيفور عنصر اين لاين*/
+   width: 0;     /*34an ukon m5fe w yzhr lma a3ml hover*/
+  height: 3px;
+  background: var(--mainColor);
+  transition: width .5s; /*عشان الحركه تحصل ق بطئ شويه ومنساش احددها انها للويدس بس*/
+  margin-top: 2px;
+}
+
+.header .navbar > li > a:hover::after {
+
+        width: 100%;
+}
+
+.header .navbar > li > a.active:after{
+        content: "";
+        display: block; /*عشان افتر وبيفور عنصر اين لاين*/
+         width: 100%;     /*34an ukon m5fe w yzhr lma a3ml hover*/
+        height: 3px;
+        background: var(--mainColor);
+        margin-top: 2px;
+    }
+
+    /*drop down idea*/
+    .drop-down{
+        position: relative;
+    }
+
+    .dropdown-blog {
+      position: absolute;
+      display: block;
+      text-align: center;
+      background: #2e477a;
+      width: 150px;
+      height: 25px;
+      top:65% ;
+      left: -50;
+      padding-top: 3;
+      visibility: hidden; /*افضل خاصيه عشان اخفيها وارجع اظهرها لما اشاور علي اليو ال كلها*/
+      opacity: 0;
+      transition:opacity,visibilty .5s;
+    }
+
+    .dropdown-blog li a{text-align: center;
+        text-decoration: none;
+        color: white;
+        display: block; }
+
+        .drop-down:hover .dropdown-blog {
+                opacity: 1;
+                visibility: visible;
+        }
+
+
+
+   /*home section*/
+
+   .home{
+        height: 100vh; /*عشان تملي علش قد ارتفاع الشاشه قدامي*/
+        background-image: url(../Images/Background/background1.webp);
+        background-size: cover; /*عشان تظهر بوضع الحيز اللي قدامي كامله وكويسه*/
+        position: relative;           /*3aoza a7t layer fo2eha kda*/
+   }
+ 
+
+      /*hero image*/
+.home-content{
+   position: absolute;
+   width: 65%; 
+   top: 50%;
+   left: 50%;
+   transform:translate(-50%,-50%);
+   text-align: center;
+ 
+
+
+}
+
+.home-content .title{
+   color:white;
+   font-size: 3,5rem;
+   text-transform: uppercase;
+
+
+}
+.home-description{
+   margin: 20px 0px;
+   color: white;
+   letter-spacing: 2px;
+   line-height: 1.5;
+
+}
+
+  .btn{
+        width: 160px;
+        padding: 15px 0;
+        border-radius: 5px;
+        border: 0;
+        cursor: pointer; 
+        font-size: 18px;
+
+}
+
+.bt-start{
+        margin-right: 10px;
+        background: white;
+}
+
+.bt-learn{
+ background:var(--mainColor) ;
+ color: white;
+}
+
+  /*about section*/
+
+  .about-item {
+        width: 30%;
+        float: left;
+        text-align: center;
+        border: 1px solid #e8e8e8;
+        padding: 50px 20px;
+  }
+
+  .about-item .icon{
+        color: var(--mainColor);
+       
+  }
+
+  .about-item .item-title{
+       
+        text-transform: capitalize;
+        transform: color .5s;
+  }
+
+  .about-item .item-description{
+       
+        text-transform: capitalize;
+        line-height: 1.6;
+        color:  var(--greycolor);
+  }
+   
+  .about-item .link{
+        text-transform: capitalize;
+        color: var(--mainColor);
+  }
+
+  .about-item.mg{margin: 0 5%;}
+
+.about-item:hover .item-title{
+        color: white;
+}
+
+/*portifilio section*/
+
+
+
+.port-item{
+        width: 32%;
+        float: left;
+        position: relative;
+        padding: 20px;
+}
+
+
+.port-item img{
+        width: 100%; /*100 blnsba ll  ab 30 y3ne tmla ll 4a4a w tzhr b4klha kaml*/
+}
+
+.port-item.mg{
+        margin: 0 2%;
+}
+
+.port-overlayer{
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        opacity: 0;
+        visibility: hidden;
+        transition: .2s;
+}
+
+.port-item:hover .port-overlayer{
+        opacity: 1;
+        visibility: visible;
+}
+
+.port-overlayer .heroimg{
+        position: absolute;
+        text-align: center;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
+        width: 80%;
+}
+
+.port-overlayer .category{
+        text-transform: uppercase;
+        color: var(--mainColor);
+        display: block;
+        position: relative;
+        top: 10px;
+        transition: top .5s,opacity .2s;
+        transition-delay: .2s;
+        opacity: 0;
+
+}
+
+.port-overlayer .overlay-title{
+        font-size: 20px;
+        color: white;
+       position: relative;
+       top:10px;
+      transition:  top .5s,opacity .5s;
+      transition-delay: .3s;
+      opacity: 0;
+      
+}
+
+.port-overlayer a {
+        color: white;
+        position: relative;
+        top: 10px;
+        transition: top .5s,opacity .5s;
+        transition-delay: .3s;
+        opacity: 0;
+        
+}
+
+.port-overlayer a i{
+        display: inline-block;
+        background: var(--mainColor);
+        width: 40px;
+        height: 40px;
+        line-height: 40px; /*d ebn llheight lly fo2eh bdelo nfs ll ertfa3 34an yostn ll a4kal ll none lly goah*/
+        
+}
+
+.port-item:hover .category, 
+.port-item:hover .overlay-title,
+.port-item:hover .overlay-a{
+        top: 0;
+        opacity: 1;
+        
+}
+
+/*offer section */
+
+.offer-content{
+        overflow: hidden;
+}
+
+.offer-item{
+        width: 30%;
+        float: left;
+        border: 1px solid #e8e8e8;
+        padding:30px 15px 30px 70px ;
+        position: relative;
+
+}
+
+.offer-item.mg{margin: 0 5%;}
+
+.offer-item .icon{
+        position: absolute;
+        top: 35px;
+        left: 15px;
+        color: var(--mainColor);
+
+}
+.offer-item .offer-item-title{
+        text-transform: capitalize;
+        transition: .5s;
+
+}
+.offer-item .offer-item-desc{
+        text-transform: capitalize;
+        line-height: 1.6;
+        color:var(--greycolor);
+}
+
+.offer-item:hover .offer-item-title{
+        color: white;
+}
+.offer-item.ltr-effect{
+        z-index: 1;
+}
+/*service section*/
+
+
+.service-item{
+       width: 50%;
+      float: left;
+      
+}
+.service-item .section-header{
+text-align: left;
+}
+
+.service-item .section-header .line{
+        margin: 0;
+        margin-bottom: 40px;
+}
+
+.service-item .service-description{
+        line-height: 1.5;
+        color: var(--greycolor);
+        font-size: 17px;
+        padding-right: 20px;
+}
+
+.service-list{
+        list-style: none;
+}
+.service-list li{
+        color:  var(--greycolor);
+}
+.service-list li i{
+border: 1px solid var(--mainColor);
+color: var(--mainColor);
+width: 30px;
+height: 30px;
+padding: 4px;
+border-radius: 50%;
+}
+
+.service-img img{
+        width: 100%;
+       
+}
+
+.service-pollets{
+        list-style: none;
+        text-align: center;
+}
+
+.service-pollets li{
+        display: inline-block;
+        width:10px ;
+        height: 10px;
+        border-radius: 50%;
+        background-color: #e8e8e8;
+        margin: 10px 5px;
+}
+.service-pollets li.active{
+background-color: var(--mainColor);
+}
+
+.service-pollets li:hover{
+        background-color:var(--mainColor);
+}
+
+
+
+/*numbers section*/
+.numbers{
+        position: relative;/*34an ll overlay yt7rk 3 asas aboh d w y4t8l*/
+        background-image:url("../Images/Background/background2.webp");
+        background-size: cover;
+        background-attachment: fixed;
+        height: 300px;
+        
+}
+
+.numbers-item{
+ padding: 100px 0;
+ float: left;
+ width: 25%;
+text-align: center;
+}
+
+.numbers-item .icon{
+        color: var(--mainColor);
+}
+
+.numbers-item-title{
+        font-weight: bold;
+        font-size: 30px;
+        color: var(--whitecolor);
+}
+
+.numbers-item-text{
+        color: var(--whitecolor);
+}
+
+/*pricing section*/
+
+.pricing-plans{
+        overflow: hidden;
+}
+
+.pricing-item{
+        width: 30%;
+        float: left;
+        border: 1px solid #e8e8e8;
+        padding: 40px 15px;
+        text-align: center;
+}
+.pricing-item.mg{
+        margin: 0 5%;
+}
+
+.pricing-item-text{
+     text-transform: uppercase;
+     font-size: 17px;
+     color:  var(--greycolor);
+     transition: color 0,5s;
+}
+
+.pricing-item-permonth{
+        border: 2px solid var(--mainColor);
+        border-radius: 50%;
+        width:130px ;
+        height: 130px;
+        margin: 20px auto;
+        padding: 20px 0;
+        transition: color 0,5s;
+}
+
+.pricing-item-permonth .doller{
+       font-size: 50px;
+}
+
+.pricing-item-permonth .month{
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: 15px;
+}
+
+.pricing-list{
+    list-style: none;
+}
+.pricing-list li{
+        color: var(--greycolor) ;
+}
+
+
+.pricing-item-purchase{
+        background: none;
+        border: 0;
+        display: block;
+        width: 140px;
+        margin:15px auto 0 auto;
+        color: #7ba7ff;
+        padding: 10px;
+        border: 2px solid #7ba7ff;
+}
+
+ .pricing-item:hover .pricing-item-permonth
+ ,.pricing-item:hover .pricing-item-text{
+       color:var(--whitecolor);
+ }
+
+ /*testominaial section*/
+ .testimonial{
+        position: relative;
+        background-image: url(../Images/Background/background3.webp);
+        background-attachment: fixed;
+        background-size: cover;
+        height: 400px;
+ }
+ .testimonial-content{
+        overflow: hidden;
+        padding: 120px 0;
+ }
+ .testimonial-item{
+        width: 50%;
+        float: left;
+        color:var(--whitecolor);
+ }
+
+ .testimonial-item .testimonial-toplayer{
+        padding: 10px 2px 40px 90px; /*ahm 7aga azod ll left awy 34an a7t fih ll sora*/
+        position: relative;
+ }
+ .testimonial-item .testimonial-toplayer img{
+        position: absolute;
+        left: 10px;
+        top: 10px;
+        border-radius: 50%;
+ }
+ .testimonial-item .testimonial-toplayer h2{
+    margin: 5px 0;
+ }
+ .testimonial-item .testimonial-toplayer span{
+   color: var(--mainColor);
+ }
+ .testimonial-desc{
+        line-height: 1.5;
+        font-size: 17px;
+
+ }
+
+ /*Team section*/
+
+
+ .team-content{
+     overflow: hidden;
+ }
+
+ .team-item{
+    width: 30%;
+    float: left;
+    background-color: #e8e8e8;
+    padding: 40px 15px;
+    text-align: center;
+ }
+ .team-item.mg{
+        margin: 0 5%;
+ }
+
+ .team-item .team-img{
+        width:90%;
+        margin: auto;
+        position:relative;
+ }
+ .team-img .team-img-overlay{
+        position: absolute;
+        background:rgba(0, 0, 0, 0.5);
+        opacity: 0;
+        visibility: hidden;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+ }
+ .team-img .team-img-overlay a{
+        display: block;
+        width: 40px;
+        height: 40px;
+        background:#7ba7ff;
+        color: var(--whitecolor);
+        margin-left: auto;
+ }
+ .team-img .team-img-overlay a i{
+        line-height: 40px;
+ }
+
+ .team-item .team-img img{
+        width: 100%;
+ }
+
+ .team-info .team-info-title{
+    color: #222;
+    margin: 10px 0;
+    transition: .5s;
+ }
+ .team-info .team-info-text{
+      color:  var(--greycolor);
+      font-size:14px;
+      text-transform: uppercase;
+      transition: .5s;
+ }
+
+.team-item:hover .team-img-overlay{
+        opacity: 1;
+        visibility: visible;
+}
+.team-item.tb-effect{
+        z-index: 1;
+}
+.team-item:hover .team-info-title{
+   color: var(--whitecolor);
+}
+.team-item:hover .team-info-text{
+   color: var(--mainColor);
+}
+/*Blog section*/
+.blog{
+ background: #e8e8e8;
+}
+
+.blog-content{
+ overflow: hidden;
+}
+.blog-item{
+        float: left;
+        width: 30%;
+}
+.blog-img img{
+        width: 100%;
+}
+.blog-item.mg{
+        margin: 0 5%;
+}
+
+.blog-info{
+        padding: 20px;
+}
+.blog-list{
+       
+        list-style: none;
+        margin: 10px 0;
+}
+
+.blog-list li{
+        display: inline-block;
+        margin: 0 3px;
+        
+}
+.blog-list li i{
+  color: var(--mainColor);
+}
+
+.blog-title{
+   margin: 20px 0;
+   font-weight: bold;
+}
+.blog-dsec{
+  color:  var(--greycolor);
+  line-height: 1.5;
+}
+.blog-link{
+        color: var(--mainColor);
+}
+
+/*contact section*/
+ 
+ .contact-item{
+        float: left;
+        width: 33%;
+        text-align: center;
+ }
+ .contact-item .icon
+ {
+        color:var(--mainColor);
+         
+ }
+ .contact-item .contact-desc{
+  color: var(--greycolor);
+ }
+
+ /*footer section*/
+ .footer{
+        background: #1c1d21;
+        text-align: center;
+        padding: 60px 0;
+ }
+ .footer-links{
+        list-style: none;
+        margin: 20px 0;
+ }
+ .footer-links li{
+   display: inline-block;
+ }
+ .footer-links li a{
+        display: block;
+        width: 50px;
+        height: 50px;
+        background: var(--mainColor);
+        color: var(--whitecolor);
+        margin: 0 5px;
+        border-radius: 50%;
+ }
+ .footer-links li a i{
+        line-height: 50px;
+ }
+ .copyright{
+        font-size: 15px;
+        color:var(--greycolor);
+        text-transform: uppercase;
+ }
